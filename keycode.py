@@ -204,6 +204,9 @@ def sendKey(key):
     win32api.keybd_event(int(key), 0, 0, 0)
     win32api.keybd_event(int(key), 0, win32con.KEYEVENTF_KEYUP, 0)
 
+def sendKeyback(hwnd,key):
+    win32api.SendMessage(hwnd, win32con.WM_KEYDOWN, int(key), 0)
+    win32api.SendMessage(hwnd, win32con.WM_KEYDOWN, int(key), 0)
 
 def sendShiftAndKey(key):
     win32api.keybd_event(VK_CODE["shift"], 0, 0, 0)
